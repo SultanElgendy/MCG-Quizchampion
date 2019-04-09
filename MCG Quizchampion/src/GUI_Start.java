@@ -11,6 +11,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ButtonGroup;
 
 public class GUI_Start extends JFrame {
 
@@ -25,7 +29,9 @@ public class GUI_Start extends JFrame {
 	private JTextField txtName_2;
 	private JTextField txtName_3;
 	private JLabel lblRegeln;
-	private JLabel label;
+	private JTextPane txtpnSalamGenosse;
+	private final Action action = new SwingAction();
+	private final ButtonGroup Spielerzahl = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -60,16 +66,35 @@ public class GUI_Start extends JFrame {
 		contentPane.add(lblMcgQuizchampion);
 		
 		btnSpieler_2 = new JButton("Spieler 2");
+		Spielerzahl.add(btnSpieler_2);
+		btnSpieler_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSpieler_2.setForeground(Color.RED);
 		btnSpieler_2.setBounds(101, 206, 89, 23);
 		contentPane.add(btnSpieler_2);
 		
 		btnSpieler_3 = new JButton("Spieler 3");
+		Spielerzahl.add(btnSpieler_3);
+		btnSpieler_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.out.println("Spieler 3 Gewählt");
+			}
+		});
 		btnSpieler_3.setForeground(Color.RED);
 		btnSpieler_3.setBounds(101, 254, 89, 23);
 		contentPane.add(btnSpieler_3);
 		
 		btnSpieler_1 = new JButton("Spieler 1");
+		Spielerzahl.add(btnSpieler_1);
+		btnSpieler_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.out.println("Spieler 1 Gewählt");
+			}
+		});
 		btnSpieler_1.setForeground(Color.RED);
 		btnSpieler_1.setBounds(101, 159, 89, 23);
 		contentPane.add(btnSpieler_1);
@@ -93,19 +118,19 @@ public class GUI_Start extends JFrame {
 		contentPane.add(btnStart);
 		
 		txtName_1 = new JTextField();
-		txtName_1.setText("Name");
+		txtName_1.setText("Name 1");
 		txtName_1.setBounds(218, 162, 96, 20);
 		contentPane.add(txtName_1);
 		txtName_1.setColumns(10);
 		
 		txtName_2 = new JTextField();
-		txtName_2.setText("Name");
+		txtName_2.setText("Name 2");
 		txtName_2.setBounds(218, 207, 96, 20);
 		contentPane.add(txtName_2);
 		txtName_2.setColumns(10);
 		
 		txtName_3 = new JTextField();
-		txtName_3.setText("Name");
+		txtName_3.setText("Name 3");
 		txtName_3.setBounds(218, 255, 96, 20);
 		contentPane.add(txtName_3);
 		txtName_3.setColumns(10);
@@ -115,9 +140,17 @@ public class GUI_Start extends JFrame {
 		lblRegeln.setBounds(355, 90, 89, 23);
 		contentPane.add(lblRegeln);
 		
-		label = new JLabel("\u00E4");
-		label.setBackground(Color.BLACK);
-		label.setBounds(324, 124, 348, 455);
-		contentPane.add(label);
+		txtpnSalamGenosse = new JTextPane();
+		txtpnSalamGenosse.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtpnSalamGenosse.setBounds(355, 124, 391, 110);
+		contentPane.add(txtpnSalamGenosse);
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
