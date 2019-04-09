@@ -15,6 +15,7 @@ import javax.swing.JTextPane;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 
 public class GUI_Start extends JFrame {
 
@@ -32,6 +33,10 @@ public class GUI_Start extends JFrame {
 	private JTextPane txtpnSalamGenosse;
 	private final Action action = new SwingAction();
 	private final ButtonGroup Spielerzahl = new ButtonGroup();
+	private final JRadioButton rdbtnEinfach = new JRadioButton("Einfach");
+	private JRadioButton rdbtnMittel;
+	private JRadioButton rdbtnSchwer;
+	private JLabel lblSchwierigkeitsgrad;
 
 	/**
 	 * Launch the application.
@@ -69,10 +74,11 @@ public class GUI_Start extends JFrame {
 		Spielerzahl.add(btnSpieler_2);
 		btnSpieler_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielerZahl(2);
 			}
 		});
 		btnSpieler_2.setForeground(Color.RED);
-		btnSpieler_2.setBounds(101, 206, 89, 23);
+		btnSpieler_2.setBounds(101, 124, 89, 23);
 		contentPane.add(btnSpieler_2);
 		
 		btnSpieler_3 = new JButton("Spieler 3");
@@ -80,11 +86,11 @@ public class GUI_Start extends JFrame {
 		btnSpieler_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				System.out.println("Spieler 3 Gewählt");
+				Hauptklasse.setSpielerZahl(3);
 			}
 		});
 		btnSpieler_3.setForeground(Color.RED);
-		btnSpieler_3.setBounds(101, 254, 89, 23);
+		btnSpieler_3.setBounds(101, 158, 89, 23);
 		contentPane.add(btnSpieler_3);
 		
 		btnSpieler_1 = new JButton("Spieler 1");
@@ -92,11 +98,11 @@ public class GUI_Start extends JFrame {
 		btnSpieler_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				System.out.println("Spieler 1 Gewählt");
+				Hauptklasse.setSpielerZahl(1);
 			}
 		});
 		btnSpieler_1.setForeground(Color.RED);
-		btnSpieler_1.setBounds(101, 159, 89, 23);
+		btnSpieler_1.setBounds(101, 90, 89, 23);
 		contentPane.add(btnSpieler_1);
 		
 		btnLaden = new JButton("LADEN");
@@ -118,20 +124,30 @@ public class GUI_Start extends JFrame {
 		contentPane.add(btnStart);
 		
 		txtName_1 = new JTextField();
+		txtName_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielerName1(txtName_1.getText());
+			}
+		});
 		txtName_1.setText("Name 1");
-		txtName_1.setBounds(218, 162, 96, 20);
+		txtName_1.setBounds(200, 91, 96, 20);
 		contentPane.add(txtName_1);
 		txtName_1.setColumns(10);
 		
 		txtName_2 = new JTextField();
+		txtName_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielerName2(txtName_2.getText());
+			}
+		});
 		txtName_2.setText("Name 2");
-		txtName_2.setBounds(218, 207, 96, 20);
+		txtName_2.setBounds(200, 125, 96, 20);
 		contentPane.add(txtName_2);
 		txtName_2.setColumns(10);
 		
 		txtName_3 = new JTextField();
 		txtName_3.setText("Name 3");
-		txtName_3.setBounds(218, 255, 96, 20);
+		txtName_3.setBounds(200, 159, 96, 20);
 		contentPane.add(txtName_3);
 		txtName_3.setColumns(10);
 		
@@ -144,6 +160,21 @@ public class GUI_Start extends JFrame {
 		txtpnSalamGenosse.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtpnSalamGenosse.setBounds(355, 124, 391, 110);
 		contentPane.add(txtpnSalamGenosse);
+		rdbtnEinfach.setBounds(101, 234, 177, 31);
+		contentPane.add(rdbtnEinfach);
+		
+		rdbtnMittel = new JRadioButton("Mittel");
+		rdbtnMittel.setBounds(101, 264, 109, 23);
+		contentPane.add(rdbtnMittel);
+		
+		rdbtnSchwer = new JRadioButton("Schwer");
+		rdbtnSchwer.setBounds(101, 290, 109, 23);
+		contentPane.add(rdbtnSchwer);
+		
+		lblSchwierigkeitsgrad = new JLabel("Schwierigkeitsgrad");
+		lblSchwierigkeitsgrad.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblSchwierigkeitsgrad.setBounds(99, 192, 152, 40);
+		contentPane.add(lblSchwierigkeitsgrad);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
