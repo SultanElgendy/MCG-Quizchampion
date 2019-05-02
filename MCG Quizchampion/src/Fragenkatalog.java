@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class Fragenkatalog {
 
-	HashMap<String, HashMap<Integer, ArrayList<Fragen>>> fragenliste = new HashMap<String, HashMap<Integer, ArrayList<Fragen>>>();
+	HashMap<String, HashMap<Integer, ArrayList<Frage>>> fragenliste = new HashMap<String, HashMap<Integer, ArrayList<Frage>>>();
 	ArrayList<String> kategorien = new ArrayList <String>();
 	
 	public Fragenkatalog()
@@ -11,7 +11,7 @@ public class Fragenkatalog {
 			kategorienFuellen();
 			for(int i = 0; i<kategorien.size();i++)
 			{
-				fragenliste.put(kategorien.get(i), new HashMap<Integer, ArrayList<Fragen>>());
+				fragenliste.put(kategorien.get(i), new HashMap<Integer, ArrayList<Frage>>());
 			}
 	}
 	
