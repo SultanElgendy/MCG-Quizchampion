@@ -13,9 +13,20 @@ public class Frage {
 	
 	private Character korrekteAntwort;
 	
-	public Frage(int nummer)
-	{
-		setNummer(nummer);
+
+
+	public Frage(int nummer, String kategorie, int schwierigkeitsgrad, String frage, String antwortA, String antwortB,
+			String antwortC, String antwortD, Character korrekteAntwort) {
+		super();
+		this.nummer = nummer;
+		this.kategorie = kategorie;
+		this.schwierigkeitsgrad = schwierigkeitsgrad;
+		this.frage = frage;
+		this.antwortA = antwortA;
+		this.antwortB = antwortB;
+		this.antwortC = antwortC;
+		this.antwortD = antwortD;
+		this.korrekteAntwort = korrekteAntwort;
 	}
 
 	public int getNummer() {
