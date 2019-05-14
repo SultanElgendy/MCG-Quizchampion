@@ -69,4 +69,9 @@ public class GUI_Kategorienwahl extends JFrame {
 		lblWhleEineKategorie.setBounds(262, 52, 239, 49);
 		contentPane.add(lblWhleEineKategorie);
 	}
+	
+	public void zufaelligeKategorieenAuswahl(int anzahlKategorien)
+	{
+		int zufall =(int) Math.round(Math.random() * anzahlKategorien);
+	}
 }
