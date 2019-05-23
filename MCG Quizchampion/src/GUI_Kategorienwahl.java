@@ -10,7 +10,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class GUI_Kategorienwahl extends JFrame {
+public class GUI_Kategorienwahl extends JFrame 
+{
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
@@ -72,6 +73,13 @@ public class GUI_Kategorienwahl extends JFrame {
 	
 	public void zufaelligeKategorieenAuswahl(int anzahlKategorien)
 	{
-		int zufall =(int) Math.round(Math.random() * anzahlKategorien);
+		int zufall = (int) Math.round(Math.random() * Hauptklasse.fragenkatalog.kategorien.size());
+		int zufall1 = (int) Math.round(Math.random() * Hauptklasse.fragenkatalog.kategorien.size());
+		int zufall2 = (int) Math.round(Math.random() * Hauptklasse.fragenkatalog.kategorien.size());
+	
+		while (zufall1 == zufall2)
+		{
+			zufall = (int) Math.round(Math.random() * Hauptklasse.fragenkatalog.kategorien.size());
+		}
 	}
 }
